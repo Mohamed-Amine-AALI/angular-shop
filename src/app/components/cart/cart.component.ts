@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Product } from 'src/assets/data/products';
-import { CartService } from '../cart.service';
+import { CartService } from '../../services/cart.service';
+import { Product, ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'cart',
@@ -11,7 +11,10 @@ export class CartComponent {
 
   total: number = 0;
   
-  constructor(private cartService: CartService) {
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService
+  ) {
     this.calculateTotalPrice();
   }
   
@@ -27,16 +30,16 @@ export class CartComponent {
 
   deleteProduct = (product: Product) => {
     this.cartService.removeFromCart(product);
-    this.total -= Number(product.specifications.price.replace('$', ""));
+    this.total -= this.productService.getProductPrice(product);
   }
 
   incrementQuantity = (product: Product) => {
     this.cartService.incrementQuantity(product);
-    this.total += Number(product.specifications.price.replace('$', ""));
+    this.total += this.productService.getProductPrice(product);
   }
 
   decrementQuantity = (product: Product) => {
     this.cartService.decrementQuantity(product);
-    this.total -= Number(product.specifications.price.replace('$', ""));
+    this.total -= this.productService.getProductPrice(product);
   }
 }

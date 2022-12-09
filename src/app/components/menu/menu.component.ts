@@ -12,7 +12,11 @@ export enum Menu {
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  menus: Menu[] = [Menu.MY_SHOP, Menu.CART, Menu.PROFILE];
+  menus = [
+    { menu: Menu.MY_SHOP, url: "/my-shop" },
+    { menu: Menu.CART, url: "/cart" },
+    { menu: Menu.PROFILE, url: "profile" }
+  ];
 
   @Input() selectedMenu!: Menu;
   @Output() changeMenu = new EventEmitter<Menu>();

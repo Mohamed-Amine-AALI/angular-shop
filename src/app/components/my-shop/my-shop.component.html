@@ -1,0 +1,13 @@
+<div id="productsContainer">
+    <div *ngFor="let product of products" id="productCard">
+        <div style="text-align: center; width: 500px; height: 500px;">
+            <img src={{product.pictureUrl}} alt="product"/>
+        </div> 
+        <p>Product : {{product.name}}</p>
+        <p>Color: {{product.specifications.color}}</p>
+        <p>Weight: {{product.specifications.weight}}</p>
+        <p>Storage: {{product.specifications.storage}}</p>
+        <p style="font-size: 40px">Price : {{product.specifications.price}}</p>
+        <button type="button" (click)="addInCart(product)">Add to cart</button>
+    </div>
+</div>

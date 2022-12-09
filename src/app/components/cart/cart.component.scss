@@ -1,0 +1,29 @@
+p {
+    font-size: 30px;
+    margin: 10px;
+}
+
+hr.solid {
+    border-top: 3px solid #bbb;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+button {
+    font-size: 20px;;
+}
+
+#productCart {
+    display: flex;
+    margin: 5px;
+    flex-direction:
+    column; 
+    border: 3px solid black !important;
+    padding: 10px;
+}
+
+#productsContainer {
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+}

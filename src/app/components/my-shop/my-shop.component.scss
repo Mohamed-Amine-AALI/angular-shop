@@ -1,0 +1,17 @@
+#productsContainer {
+    display: flex;
+    flex-direction: column;
+    column-gap: 5px;
+    flex-flow: wrap;
+}
+
+#productCard {
+    width: 500px;
+    border: solid;
+    margin: 5px;
+    padding: 5px;
+}
+
+p {
+    font-size: larger;
+}

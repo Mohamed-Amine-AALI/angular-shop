@@ -1,0 +1,10 @@
+<div id="header">
+    <p 
+      *ngFor="let menu of menus"
+      (click)="selectMenu(menu.menu)"
+      [ngStyle]="{color: selectedMenu == menu.menu ? '#858191' : 'white' }"
+      [routerLink]="menu.url"
+    >
+      {{menu.menu}}
+    </p>
+</div>

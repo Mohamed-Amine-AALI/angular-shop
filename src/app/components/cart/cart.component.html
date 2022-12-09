@@ -1,10 +1,6 @@
 <ng-container *ngIf="getCart().length > 0 else emptyCart">
-  <div style="display: flex; align-items: center; flex-flow: wrap;"> 
-      <div
-        #container
-        *ngFor="let p of getCart()"
-        style="display: flex; margin: 5px;flex-direction: column; border: solid; padding: 10px;"
-      >
+  <div id="productsContainer"> 
+      <div id="productCart" *ngFor="let p of getCart()">
         <img height="300" src="{{p.product.pictureUrl}}" alt="{{p.product.name}}" />
         <p>Product : {{ p.product.name }}</p>
         <p>Price : {{ p.product.specifications.price }}</p>

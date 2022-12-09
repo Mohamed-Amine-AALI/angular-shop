@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Product } from 'src/assets/data/products';
+import { Product } from './product.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  cart: Array<{product: Product, quantity: number}>;
+  cart: Array<
+    { product: Product, quantity: number }
+  >;
 
   constructor() {
     const productsFromLS = localStorage.getItem('cart');

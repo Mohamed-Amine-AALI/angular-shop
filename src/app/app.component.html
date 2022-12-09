@@ -1,9 +1,6 @@
 <menu
-    (changeMenu)="changeMenu($event)"
     style="padding: 0;"
+    (changeMenu)="changeMenu($event)"
     [selectedMenu]="selectedMenu">
 </menu>
-
-<my-shop *ngIf="selectedMenu === menus.MY_SHOP"></my-shop>
-
-<cart *ngIf="selectedMenu === menus.CART"></cart>
+<router-outlet></router-outlet>
