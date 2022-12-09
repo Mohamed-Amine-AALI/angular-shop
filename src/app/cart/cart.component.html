@@ -1,0 +1,43 @@
+<ng-container *ngIf="getCart().length > 0 else emptyCart">
+  <div style="display: flex; align-items: center; flex-flow: wrap;"> 
+      <div
+        #container
+        *ngFor="let p of getCart()"
+        style="display: flex; margin: 5px;flex-direction: column; border: solid; padding: 10px;"
+      >
+        <img height="300" src="{{p.product.pictureUrl}}" alt="{{p.product.name}}" />
+        <p>Product : {{ p.product.name }}</p>
+        <p>Price : {{ p.product.specifications.price }}</p>
+        <div style="display: flex; align-items: center">
+          <p>Quantity : {{ p.quantity }}</p>
+          <button
+            style="height: 30px;"
+            type="button"
+            (click)="incrementQuantity(p.product)"
+          >
+            +
+          </button>
+          <button
+            type="button"
+            (click)="decrementQuantity(p.product)"
+            [disabled]="p.quantity === 1"
+          >
+            -
+          </button>
+        </div>
+        <button type="button" (click)="deleteProduct(p.product)">
+          Delete
+        </button>
+      </div>
+  </div>
+  <hr class="solid">
+  <p><strong>Your order :</strong></p>
+  <p *ngFor="let p of getCart(); let i = index">
+    {{i+1}} - {{p.quantity}} {{p.product.name}}
+  </p>
+  <hr class="solid">
+  <p>Total : {{total}}$</p>
+</ng-container>
+<ng-template #emptyCart>
+  Your cart is empty
+</ng-template>

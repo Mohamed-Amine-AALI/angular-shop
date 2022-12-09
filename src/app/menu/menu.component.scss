@@ -1,0 +1,16 @@
+p {
+    color: white;
+    font-size: 40px
+}
+
+#header {
+    align-items: center;
+    height: 80px;
+    background-color: blue;
+    display: flex;
+    justify-content: space-around;
+}
+
+#header > p {
+    cursor: pointer;
+}
